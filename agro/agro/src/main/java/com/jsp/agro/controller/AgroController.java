@@ -56,8 +56,8 @@ public class AgroController {
 	
 	//delete
 	@DeleteMapping("/delete")
-	public ResponseEntity<ResponseStructure<User>> deleteMovieById(@RequestParam int id) {
-		return service.deleteMovieById(id);
+	public ResponseEntity<ResponseStructure<User>> deleteUserById(@RequestParam int id) {
+		return service.deleteUserById(id);
 	}
 	
 

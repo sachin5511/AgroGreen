@@ -15,6 +15,7 @@ import com.jsp.agro.exceptition.DataNotFound;
 import com.jsp.agro.exceptition.DataNotUpdate;
 import com.jsp.agro.exceptition.EmailNotFound;
 import com.jsp.agro.exceptition.PasswordMissmatched;
+import com.jsp.agro.exceptition.UserNotFound;
 import com.jsp.agro.util.ResponseStructure;
 
 @Service
@@ -128,16 +129,16 @@ public class AgroService {
 		 
 	 }
 	 //deleteById
-	 public ResponseEntity<ResponseStructure<User>> deleteMovieById(int id) {
+	 public ResponseEntity<ResponseStructure<User>> deleteUserById(int id) {
 		User db = dao.deleteUserById(id);
 		ResponseStructure<User> m = new ResponseStructure<User>();
 		if(db!=null) {
 		m.setData(db);
-		m.setMsg("Movie delete Successfully");
+		m.setMsg("Data deleted Successfully");
 		m.setStatus(HttpStatus.GONE.value());
 		return new ResponseEntity<ResponseStructure<User>>(m,HttpStatus.GONE);
 		}
-		return null;
+		throw new  UserNotFound(id + " : is not present");
 	}
 	
 	
