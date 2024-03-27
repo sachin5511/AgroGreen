@@ -82,7 +82,8 @@ public class EquipmentsService {
 		 }
 		 throw new UserNotFound(uid+" : id is not present");
 	}
-
+	
+	//fetch by equipmentName
 	public ResponseEntity<ResponseStructure<List<Equipments>>> fetchByequipmentName(String eqname) {
 		List<Equipments> db = dao.fetchByequipmentName(eqname);
 		ResponseStructure<List<Equipments>> m = new ResponseStructure<List<Equipments>>();
@@ -94,7 +95,8 @@ public class EquipmentsService {
 		}
 		throw new DataNotFound("Data no found");
 	}
-
+	
+	//update
 	public ResponseEntity<ResponseStructure<Equipments>> update( Equipments equipment) {
 		 Equipments equipdata = dao.fetchById(equipment.getId());
 		 if(equipdata!=null) {

@@ -81,6 +81,16 @@ public class AgroExceptionHandle extends ResponseEntityExceptionHandler {
 		m.setStatus(HttpStatus.NOT_FOUND.value());
 		return new ResponseEntity<ResponseStructure<String>>(m,HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(DateInvalid.class)
+	public ResponseEntity<ResponseStructure<String> >dateInvalid(DateInvalid id){
+		ResponseStructure<String> m = new ResponseStructure<String>();
+		m.setData("Data not save");
+		m.setMsg(id.getMsg());
+		m.setStatus(HttpStatus.NOT_FOUND.value());
+		return new ResponseEntity<ResponseStructure<String>>(m,HttpStatus.NOT_FOUND);
+	}
+	
 //	@ResponseStatus(HttpStatus.BAD_REQUEST)
 //	@ExceptionHandler(MethodArgumentNotValidException.class)
 //	public Map<String, String> handleValidationExceptions(
